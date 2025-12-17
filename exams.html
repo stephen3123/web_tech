@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stephen Mathew | JavaScript Tasks</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f3f4f6;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.cv, .right {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.cv {
+    width: 30%;
+}
+
+.right {
+    width: 70%;
+}
+
+h1, h2, h3 {
+    color: #222;
+}
+
+.skill {
+    display: inline-block;
+    background: #e0e7ff;
+    padding: 6px 10px;
+    margin: 4px;
+    border-radius: 4px;
+}
+
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.task-grid button {
+    padding: 8px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task-grid button:hover {
+    background: #1e40af;
+}
+
+#codeBox {
+    margin-top: 15px;
+    background: #111827;
+    color: #e5e7eb;
+    padding: 15px;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    display: none;
+}
+
+.section {
+    margin-top: 25px;
+}
+
+input[type="text"], input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+}
+
+button.action {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.action:hover {
+    background: #15803d;
+}
+
+ul {
+    padding-left: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- CV SECTION -->
+    <div class="cv">
+        <h1>Stephen Mathew</h1>
+        <p><strong>Student | Web Development</strong></p>
+
+        <h2>Skills</h2>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+
+        <h2>About</h2>
+        <p>
+            Student practicing JavaScript through 30 structured tasks
+            covering strings, arrays, functions, forms, objects, and timers.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <!-- TASKS -->
+        <h2>JavaScript Tasks (SET E)</h2>
+
+        <div class="task-grid">
+            <button onclick="showCode(1)">1</button>
+            <button onclick="showCode(2)">2</button>
+            <button onclick="showCode(3)">3</button>
+            <button onclick="showCode(4)">4</button>
+            <button onclick="showCode(5)">5</button>
+            <button onclick="showCode(6)">6</button>
+            <button onclick="showCode(7)">7</button>
+            <button onclick="showCode(8)">8</button>
+            <button onclick="showCode(9)">9</button>
+            <button onclick="showCode(10)">10</button>
+            <button onclick="showCode(11)">11</button>
+            <button onclick="showCode(12)">12</button>
+            <button onclick="showCode(13)">13</button>
+            <button onclick="showCode(14)">14</button>
+            <button onclick="showCode(15)">15</button>
+            <button onclick="showCode(16)">16</button>
+            <button onclick="showCode(17)">17</button>
+            <button onclick="showCode(18)">18</button>
+            <button onclick="showCode(19)">19</button>
+            <button onclick="showCode(20)">20</button>
+            <button onclick="showCode(21)">21</button>
+            <button onclick="showCode(22)">22</button>
+            <button onclick="showCode(23)">23</button>
+            <button onclick="showCode(24)">24</button>
+            <button onclick="showCode(25)">25</button>
+            <button onclick="showCode(26)">26</button>
+            <button onclick="showCode(27)">27</button>
+            <button onclick="showCode(28)">28</button>
+            <button onclick="showCode(29)">29</button>
+            <button onclick="showCode(30)">30</button>
+        </div>
+
+        <div id="codeBox"></div>
+
+        <!-- TASK LINKS -->
+        <div class="section">
+            <h2>Task Link Upload</h2>
+
+            <input type="text" id="taskName" placeholder="Task name">
+            <input type="text" id="taskLink" placeholder="Task link">
+            <button class="action" onclick="addLink()">Add Task Link</button>
+
+            <ul id="linkList"></ul>
+        </div>
+
+        <!-- HOMEWORK -->
+        <div class="section">
+            <h2>Homework Upload</h2>
+
+            <input type="text" id="hwTitle" placeholder="Homework title">
+            <input type="file" id="hwFile">
+            <button class="action" onclick="uploadHomework()">Upload Homework</button>
+
+            <ul id="homeworkList"></ul>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const codes = {
+1:`let s="hello";console.log(s.split("").reverse().join(""));`,
+2:`let t="JavaScript";console.log(t.substring(2,4));`,
+3:`let w="Learning JS is fun".split(" ");console.log(w.reduce((a,b)=>a.length>b.length?a:b));`,
+4:`console.log("HELLO".toLowerCase());`,
+5:`console.log("hello".toUpperCase());`,
+6:`let s="Hi @ JS";console.log(s.split(" ").length);`,
+7:`let a=[1,2,3];console.log(a);`,
+8:`let a=[10,20,30];console.log(a[2]);`,
+9:`let a=[1,2,3];alert(a[a.length-1]);`,
+10:`let i=prompt("Enter");alert(i.charAt(9));`,
+11:`console.log([1,2,3].map(n=>n*2));`,
+12:`console.log([4,1,3].sort((a,b)=>b-a));`,
+13:`let a=[1,2,4];a.splice(2,0,3);console.log(a);`,
+14:`let a=[1,2,3];a.splice(1,1);console.log(a);`,
+15:`function calc(a,b){return a+b;}console.log(calc(2,3));`,
+16:`function add(a,b){return a+b;}console.log(add(5,2));`,
+17:`function mul(a,b){return a*b;}console.log(mul(4,2));`,
+18:`function div(a,b){return a/b;}console.log(div(10,2));`,
+19:`let n=5;console.log(n%2==0?"Even":"Odd");`,
+20:`function check(x){return x.length==10;}`,
+21:`console.log(Number("5")+Number("3"));`,
+22:`console.log(/@/.test("a@mail.com"));`,
+23:`console.log("password".length>=8);`,
+24:`form.reset();`,
+25:`console.log(formData);`,
+26:`console.log(filledCount);`,
+27:`let p={name:"John",age:20};console.log(p);`,
+28:`console.log(p.name);`,
+29:`setInterval(()=>console.log("running"),1000);`,
+30:`setInterval(()=>console.log(new Date().toLocaleTimeString()),1000);`
+};
+
+function showCode(n){
+    const box=document.getElementById("codeBox");
+    box.style.display="block";
+    box.textContent=codes[n];
+}
+
+function addLink(){
+    const name=document.getElementById("taskName").value;
+    const link=document.getElementById("taskLink").value;
+    if(name==""||link==""){alert("Enter name and link");return;}
+    const li=document.createElement("li");
+    const a=document.createElement("a");
+    a.href=link;
+    a.textContent=name;
+    a.target="_blank";
+    li.appendChild(a);
+    document.getElementById("linkList").appendChild(li);
+    taskName.value="";
+    taskLink.value="";
+}
+
+function uploadHomework(){
+    const title=document.getElementById("hwTitle").value;
+    const file=document.getElementById("hwFile");
+    if(title==""||file.files.length==0){alert("Enter title and file");return;}
+    const li=document.createElement("li");
+    li.textContent=title+" - "+file.files[0].name;
+    document.getElementById("homeworkList").appendChild(li);
+    hwTitle.value="";
+    file.value="";
+}
+</script>
+
+</body>
+</html>
